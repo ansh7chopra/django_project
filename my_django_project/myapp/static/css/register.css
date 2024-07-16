@@ -1,0 +1,70 @@
+body{
+    background: linear-gradient(to right, rgb(225, 228, 225), rgb(204, 207, 204));
+}
+h2{
+    text-align: center;
+}
+.inputs{
+text-align: center;
+position: relative;
+margin: 15px;
+padding-block: 1px;
+padding-inline: 2px; 
+margin-top: 50px;
+}
+#input[type="password" i]{
+    width: 200px;
+    height: 25px;
+    border-radius: 4px;
+}
+#button{
+text-align: center;
+margin-top: 50px;
+border: 2px solid black;
+background-color: black;
+color: white;
+border-radius: 8px;
+width: 350px;
+height: 33px;
+} 
+
+.container{
+    display: flex;
+    margin-left: 150px;
+    
+}
+.box1{
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    width: 470px;
+    height: 450px;
+    background-color: white;
+}
+.box2{
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    width: 470px;
+    height: 450px;
+}
+#message{
+    text-align: center;
+    font-size: larger;
+    color: rgb(253, 98, 2);
+    font-weight: bolder;
+    margin-top: 20px;
+}
+.box2 img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+p{
+    text-align: center;
+}
+a{
+color:orange;
+text-decoration: none;
+}
+a:hover{
+text-decoration: underline;
+}

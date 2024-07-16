@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Booking</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/seat_selection.css' %}">
+  </head>
+  <body>
+    <div class="center">
+      <div class="tickets">
+        <div class="ticket-selector">
+          <div class="seats">
+            <div class="status">
+              <div class="item">Available</div>
+              <div class="item">Booked</div>
+              <div class="item">Selected</div>
+            </div>
+            <div class="all-seats">
+              
+            </div>
+          </div>
+
+        <div class="price">
+          <div class="total">
+            <span> <span class="count">0</span> Tickets </span>
+            <div class="amount">0</div>
+          </div>
+          <button id="paybtn" type="button">Pay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="{% static 'js/seat_selection.js' %}"></script>
+<script>
+     var paymenturl = "{% url 'payment_page' %}";
+</script>
+
+  
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>admin</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}" />
+  </head>
+  <body>
+    <h1>Welcome Admin</h1>
+    <div class="logout">
+      <button id="logoutbtn">Log Out</button>
+    </div>
+
+    <div class="searchbar">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="  Search for movies..."
+      />
+      <button onclick="searchMovies()" id="searchbtn">Search</button>
+      <div id="searchResults"></div>
+    </div>
+
+    <div class="logo">
+      <img src="{% static 'img/bookmyshow.png' %}" alt="logo" />
+    </div>
+
+    <div class="heading1">
+      <h3>Download Tickets</h3>
+    </div>
+    <div class="recommended">
+      <div class="rmovies">
+        <a href="#" onclick="getTicketSales('Bhaiyya Ji')">
+          <img src="{% static 'img/Bhaiyya Ji.jpg' %}" alt="" id="imgs" />
+              <strong>Bhaiyya Ji</strong> <br />action, crime
+        </a>
+      </div>
+          <div class="rmovies">
+            <a href="#" onclick="getTicketSales('Rose Rosy te Gulab')">
+              <img src="{% static 'img/Rose_Rosy_te_Gulab.jpg' %}" alt="" id="imgs" />
+              <strong>Rose Rosy Te Gulab</strong> <br />comedy , romantic
+            </a>
+          </div>
+          <div class="rmovies">
+            <a href="#" onclick="getTicketSales('Furiosa')">
+              <img src="{% static 'img/furiosa.jpg' %}" alt="" id="imgs" />
+              <strong>Furiosa</strong> <br />Science-fiction , action
+            </a>
+          </div>
+          <div class="rmovies">
+            <a href="#" onclick="getTicketSales('Srikanth')">
+              <img src="{% static 'img/srikanth.jpg' %}" alt="" id="imgs" />
+              <strong>Srikanth</strong> <br />Biography, Drama
+            </a>
+          </div>
+          <div class="rmovies">
+            <a href="#" onclick="getTicketSales('shinda shinda No Papa')">
+              <img src="{% static 'img/Shinda_Shinda_No_Papa.jpg' %}" alt="" id="imgs" />
+              <strong>Shinda Shinda No Papa</strong> <br />Comedy , Drama
+            </a>
+          </div>
+    </div>
+    <div id="ticketSalesContainer"></div>
+
+    <script src="{% static 'js/admin.js' %}"></script>
+  </body>
+</html>

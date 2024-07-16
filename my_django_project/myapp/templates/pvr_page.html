@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVR Options</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/pvr_page.css' %}">
+    <script src="{% static 'js/pvr_page.js' %}" defer></script>
+
+</head>
+<body>
+    <h1>PVR Options</h1>
+    <label for="dateInput">Select a date:</label>
+    <input type="date" id="dateInput" name="dateInput" style=" color: #6d6d6d; background-color: white; border: 2px solid #ccc; padding: 8px 12px; border-radius: 4px;">
+
+
+    {% for pvr in pvr_details %}
+    <div class="pvr-box">
+        <div class="pvr-name">
+            <h2>{{ pvr.pvr_name }}</h2>
+        </div>
+        <div class="line"></div>
+        <div class="wrapper">
+            <div class="time-box">
+                <a href="#" class="pvr-link" data-pvr="{{ pvr.pvr_name }}" data-show="{{ pvr.show_1 }}">{{ pvr.show_1 }}</a>
+            </div>
+            <div class="time-box">
+                <a href="#" class="pvr-link" data-pvr="{{ pvr.pvr_name }}" data-show="{{ pvr.show_2 }}">{{ pvr.show_2 }}</a>
+            </div>
+            <div class="time-box">
+                <a href="#" class="pvr-link" data-pvr="{{ pvr.pvr_name }}" data-show="{{ pvr.show_3 }}">{{ pvr.show_3 }}</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <script>
+        var seatSelectionUrl = "{% url 'seat_selection' %}";
+    </script>
+
+</body>
+</html>
+

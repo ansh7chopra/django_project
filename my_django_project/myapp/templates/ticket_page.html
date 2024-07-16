@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Page</title>
+    {% load static %}
+   <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .ticket {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ticket h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .ticket-details {
+            margin-top: 30px;
+        }
+
+        .ticket-details p {
+            margin: 10px 0;
+            color: #555;
+        }
+   </style>
+    <script src="{% static 'js/ticket_page.js' %}" defer></script>
+</head>
+<body>
+    <div class="ticket">
+        <h1>Ticket</h1>
+        <div class="ticket-details">
+            <p><strong>Movie:</strong> <span id="movieName"></span></p>
+            <p><strong>PVR:</strong> <span id="pvrName"></span></p>
+            <p><strong>Showtime:</strong> <span id="showtime"></span></p>
+            <p><strong>Date:</strong> <span id="date"></span></p>
+            <p><strong>Selected Seats:</strong> <span id="selectedSeats"></span></p>  
+            
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+</head>
+<body>
+    <h2>Registration</h2>
+    <div class="container">
+        <div class="box1">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="inputs"><button id="button" type="submit">Register</button></div>
+            </form>
+            <p>Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+        </div>
+        <div class="box2">
+            <img src="{% static 'img/welcome.png' %}" alt="Welcome Image">
+        </div>
+    </div>
+
+    <div id="message">{{ message }}</div>
+</body>
+</html>
+<!-- {% url 'login' %} -->

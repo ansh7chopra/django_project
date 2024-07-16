@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+  <body>
+    <h2>Login</h2>
+    <div class="container">
+      <div class="box1">
+        <form method="post" id="loginForm">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="inputs"><button id="button" type="submit">Login</button></div>
+        </form>
+        <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+      </div>
+      <div class="box2">
+        <img src="{% static 'img/login-welcome.png' %}" alt="">
+      </div>
+    </div>
+    <div id='message'>{{ message }}</div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home_screen</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home_screen.css' %}" />
+
+</head>
+<body>
+    <h1>Welcome User</h1>
+    <section id="recommended_movies">
+        <div class="logout">
+            <button id="logoutbtn">Log Out</button>
+        </div>
+
+        <div class="searchbar">
+            <input type="text" id="searchInput" placeholder="Search for movies...">
+            <button onclick="searchMovies()" id="searchbtn">Search</button>
+            <div id="searchResults"></div>
+        </div>
+
+        <div class="logo">
+            <img src="{% static 'img/bookmyshow.png' %}" alt="logo">
+        </div>
+
+        <div class="heading1">
+            <h3>Recommended Movies</h3>
+        </div>
+        <div class="recommended">
+            {% for movie in recommended_movies %}
+                <div class="rmovies">
+                    <a href="{% url 'movie_details' movie.id %}">
+                        {% if movie.title == "Bhaiyya ji" %}
+                            <img src="{% static 'img/Bhaiyya Ji.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% elif movie.title == "Rose Rosy te Gulab" %}
+                            <img src="{% static 'img/Rose Rosy te Gulab.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% elif movie.title == "Furiosa" %}
+                            <img src="{% static 'img/Furiosa.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% elif movie.title == "Srikanth" %}
+                            <img src="{% static 'img/srikanth.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% elif movie.title == "Shinda Shinda No Papa" %}
+                            <img src="{% static 'img/Shinda Shinda No Papa.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% endif %}
+                        <strong>{{ movie.title }}</strong> <br> {{ movie.genre }}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        
+    </section>
+
+    <section id="upcomming_movies">
+
+        <div class="heading2">
+            <h3>Upcomming Movies</h3>
+        </div>
+        
+        <div class="upcomming">
+            {% for movie in upcomming_movies %}
+                <div class="umovies">
+                    <a href="{% url 'upcomming_details' movie.id %}">
+                        {% if movie.title == "Chandu Champion" %}
+                            <img src="{% static 'img/Chandu Champion.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% elif movie.title == "Deadpool & Wolverine" %}
+                            <img src="{% static 'img/Deadpool & Wolverine.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% elif movie.title == "Singham Again" %}
+                            <img src="{% static 'img/Singham Again.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% elif movie.title == "Venom The Last Dance" %}
+                            <img src="{% static 'img/Venom The Last Dance.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% elif movie.title == "Kalki 2898 AD" %}
+                            <img src="{% static 'img/kalki 2898 AD.jpg' %}" alt="{{ movie.title }}" id="imgs">
+                        {% endif %}
+                        <strong>{{ movie.title }}</strong> <br> {{ movie.genre }}
+                    </a>
+                </div>
+            {% endfor %}
+    </section>
+
+    <script>
+        function searchMovies() {
+            var input, filter, movies, movie, title, i;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            movies = document.querySelectorAll('.rmovies, .umovies');
+
+            for (i = 0; i < movies.length; i++) {
+                movie = movies[i];
+                title = movie.textContent || movie.innerText;    
+                if (title.toUpperCase().indexOf(filter) > -1) {
+                    movie.style.display = '';
+                } else {
+                    movie.style.display = 'none';
+                }
+            }
+        }
+
+        document.getElementById('logoutbtn').addEventListener('click', function() {
+            window.location.href = '{% url "login" %}';
+        });
+
+        history.pushState(null, null, location.href);
+        window.onpopstate = function(event) {
+            history.go(1);
+        };
+    </script>
+</body>
+</html>

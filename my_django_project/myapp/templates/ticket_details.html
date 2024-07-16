@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Details</title>
+    <style>
+      body {
+        background-color: #1f2126;
+      }
+      h1 {
+        text-align: center;
+        color: white;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: rgb(55 149 60);
+      }
+      th {
+        white-space: nowrap;
+      }
+      td {
+        white-space: nowrap;
+        color: white;
+      }
+      #downloadBtn {
+        background-color: rgb(55 149 60);
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-left: 25px;
+      }
+      #downloadBtn:hover {
+        text-decoration: underline;
+      }
+      p{
+        color: white;
+        font-size: medium;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ticket Details for {{ movie_name }}</h1>
+
+    {% if no_sales %}
+    <p>No ticket has been booked yet for this movie</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Movie</th>
+          <th>PVR</th>
+          <th>Show Time</th>
+          <th>Date</th>
+          <th>Seats</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No data</td>
+          <td>No data</td>
+          <td>No data</td>
+          <td>No data</td>
+          <td>No data</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    {% else %}
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Movie</th>
+          <th>PVR</th>
+          <th>Show Time</th>
+          <th>Date</th>
+          <th>Seats</th>
+        </tr>
+      </thead>
+      {% load custom_filters %}
+      <tbody>
+        {% for sale in sales_data %}
+        <tr>
+          <td>{{ sale.movie }}</td>
+          <td>{{ sale.pvr }}</td>
+          <td>{{ sale.show_time }}</td>
+          <td>{{ sale.date }}</td>
+          <td>{{ sale.seats|seat_count }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    <form method="GET" action="{% url 'download_ticket_sales' movie_name %}">
+        <button id="downloadBtn", type="submit">Download Ticket Sales</button>
+    </form>
+
+
+    
+    <script>
+        function getTicketSales(movie_name) {
+            window.location.href = `/admin_home/ticket-sold/${encodeURIComponent(movie_name)}/`;
+        }
+    </script>
+  </body>
+</html>

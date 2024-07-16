@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>movie_details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/movie_details.css' %}">
+    <style>
+      .screen .right::before {
+        position: absolute;
+        content: "";
+        width: 92%;
+        height: 500px;
+        background: url("{% static image_url %}") no-repeat center -18px / cover;
+        border-radius: 30px;
+        z-index: -10;
+      }
+    </style>
+  </head>
+    <body>
+      <div class="screen">
+        <div class="left">
+          <img src="{% static image_url  %}" alt="" />
+        </div>
+        <div class="right">
+          <div class="head-time">
+            <div class="time">
+              <h3><i class="bi bi-clock"></i></h3>
+              <h3><i class="bi bi-star-fill"  id="star"></i></h3>
+            </div>
+          </div>
+  
+          <div class="date-type">
+            <div class="left-card"></div>
+            <div class="right-card"></div>
+          </div>
+          <div class="content">
+            <h1>{{ movie.title }} </h1>
+            <br>
+            <p><strong>Director:</strong> {{ movie.director }}</p>
+            <br>
+            <p><strong>Starring:</strong> {{ movie.starring }}</p>
+            <br>
+            <p><strong>Genre:</strong> {{ movie.genre }}</p>
+            <br>
+            <button id="book-tickets" data-movie-title="{{ movie.title }}">Book Tickets</button>
+          </div>
+  
+      </div>
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('book-tickets').addEventListener('click', function() {
+            var movieTitle = this.getAttribute('data-movie-title');
+            localStorage.setItem('selectedMovie', movieTitle);
+            console.log('selected movie:',movieTitle)
+            window.location.href = '{% url "pvr_page" %}'; 
+        });
+    });
+    </script>
+
+  </body>
+</html>
+

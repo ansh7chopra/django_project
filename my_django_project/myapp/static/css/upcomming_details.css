@@ -1,0 +1,117 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  h3{
+    color: white;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: #1f2025;
+    font-size: large;
+  }
+  .screen {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    
+  }
+  .screen .left,
+  .right {
+    width: 80%;
+    height: 100%;
+    position: relative;
+    /* border: 1px solid white; */
+  }
+  .screen .left {
+    width: 20%;
+  }
+  .screen .left img {
+    width: 100%;
+    margin-top: 100px;
+    border-radius: 7px;
+  }
+ 
+  .content {
+    color: white;
+    margin-left: 10px;
+    margin-top: 100px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .screen .right {
+    padding: 0px 40px;
+    background: unset;
+  }
+
+  .screen .right::after {
+    position: absolute;
+    content: "";
+    width: 92%;
+    height: 200px;
+    background: linear-gradient(0deg, transparent, #1f2025);
+    border-radius: 20px;
+    top: 0;
+    z-index: -10;
+  }
+  .screen .right .head-time {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .screen .right .head-time::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    /* height: 250px; */
+    top: 0;
+    background: linear-gradient(0deg, transparent, #1f2025);
+    right: -25px;
+    z-index: -10;
+  }
+  .screen .right .head-time::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 500px;
+    top: 0;
+    background: linear-gradient(270deg, transparent, #1f2025);
+    left: -25px;
+    z-index: -10;
+  }
+  .screen .right .head-time h1 {
+    color: rgb(186, 180, 180);
+    
+  }
+  .screen .right .head-time .time h3  {
+    color: rgb(252, 245, 245);
+    font-family:'Times New Roman', Times, serif
+    
+  }
+  .screen .right .head-time .time h3 #star {
+    color:rgb(189, 9, 9)
+  }
+  .screen .right .date-type{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .screen .right .date-type .left-card::before {
+    content: "";
+    position: absolute;
+    width: 103%;
+    height: 500px;
+    top: 0;
+    background: linear-gradient(180deg, transparent, #1f2025);
+    left: -15px;
+    z-index: -10;
+  }
+
